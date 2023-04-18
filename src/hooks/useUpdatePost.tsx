@@ -26,9 +26,9 @@ export default function useUpdatePost() {
       );
       return await res.json();
     },
-    onSuccess: () => {
+    onSuccess: (newTransaction) => {
       queryClient.invalidateQueries({ queryKey: ["transactions"] });
-      navigate(`/`);
+      navigate(`/transactions/${newTransaction.id}`);
     },
   });
 
