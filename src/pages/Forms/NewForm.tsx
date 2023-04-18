@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { useMutation, QueryClient, useQueryClient } from "react-query";
-import { useNavigate } from "react-router-dom";
 import useCreatePost from "../../hooks/useCreatePost";
 
 export default function NewForm() {
@@ -92,8 +90,6 @@ export default function NewForm() {
             <input
               type="number"
               id="amount"
-              min="0.01"
-              step="0.01"
               className="px-4 py-2"
               onChange={handleChange}
               value={transaction.amount}
@@ -101,7 +97,7 @@ export default function NewForm() {
             {!isLoading && (
               <input
                 type="submit"
-                className=" mx-auto w-fit rounded-md border bg-sky-500 p-3 text-white transition-colors duration-200 sm:hover:cursor-pointer sm:hover:border-sky-500 sm:hover:bg-gray-100 sm:hover:text-sky-500"
+                className="mx-auto w-fit rounded-md border bg-sky-500 p-3 text-white transition-colors duration-200 sm:hover:cursor-pointer sm:hover:border-sky-500 sm:hover:bg-gray-100 sm:hover:text-sky-500"
               />
             )}
           </form>

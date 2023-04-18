@@ -34,20 +34,3 @@ export default function useUpdatePost() {
 
   return { mutate, isLoading };
 }
-
-// const { mutate, isLoading, isSuccess } = useMutation({
-//   mutationFn: async (id) => {
-//     const res = await fetch(`http://localhost:3005/transactions/${id}`, {
-//       method: "PUT",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify(transaction),
-//     });
-//     return await res.json();
-//   },
-//   onSuccess: () => {
-//     queryClient.invalidateQueries({ queryKey: ["transactions"] });
-//     navigate(`/`);
-//   },
-// });

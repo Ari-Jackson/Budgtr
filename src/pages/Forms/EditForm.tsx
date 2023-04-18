@@ -98,8 +98,6 @@ export default function EditForm() {
           <input
             type="number"
             id="amount"
-            min="0.01"
-            step="0.01"
             className="px-4 py-2"
             onChange={handleChange}
             value={transaction.amount}
