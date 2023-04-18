@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { type dataItem } from "./Home";
-import { useQuery, useQueryClient, useMutation } from "react-query";
-import { useNavigate } from "react-router-dom";
+import useDeletePost from "../hooks/useDeletePost";
+import useSinglePost from "../hooks/useSinglePost";
 
 const findMatchingTransaction = (id: string) => (transaction: dataItem) => {
   return transaction.id === Number(id);
@@ -11,28 +11,8 @@ export { findMatchingTransaction };
 
 export default function Transaction() {
   const { id } = useParams();
-  const navigate = useNavigate();
-  const {
-    isLoading,
-    error,
-    data: matchingTransaction,
-  } = useQuery(["transactions", id], async () => {
-    const res = await fetch(`http://localhost:3005/transactions/${id}`);
-    return await res.json();
-  });
-  const queryClient = useQueryClient();
-  const { mutate } = useMutation({
-    mutationFn: async () => {
-      const res = await fetch(`http://localhost:3005/transactions/${id}`, {
-        method: "DELETE",
-      });
-      return await res.json();
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["transactions"] });
-      navigate(`/`);
-    },
-  });
+  const [matchingTransaction, isLoading, error] = useSinglePost(id);
+  const mutate = useDeletePost(id);
 
   if (isLoading) {
     return <div>Loading...</div>;

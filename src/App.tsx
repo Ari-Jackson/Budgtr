@@ -1,16 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import { useQuery } from "react-query";
 import Home from "./pages/Home";
 import Transaction from "./pages/Transaction";
 import EditForm from "./pages/Forms/EditForm";
 import NewForm from "./pages/Forms/NewForm";
+import useAllPosts from "./hooks/useAllPosts";
 
 export default function App() {
-  const { isLoading, error, data } = useQuery("transactions", async () => {
-    const res = await fetch("http://localhost:3005/transactions");
-    return await res.json();
-  });
+  const [isLoading, error, data] = useAllPosts();
 
   if (isLoading) {
     return <h1>Loading...</h1>;

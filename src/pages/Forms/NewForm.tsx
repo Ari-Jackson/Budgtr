@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useMutation, QueryClient, useQueryClient } from "react-query";
 import { useNavigate } from "react-router-dom";
+import useCreatePost from "../../hooks/useCreatePost";
 
 export default function NewForm() {
   const initialState = {
@@ -11,24 +12,7 @@ export default function NewForm() {
   };
   type transactionType = typeof initialState;
   const [transaction, setTransaction] = useState({ ...initialState });
-  const navigate = useNavigate();
-  const queryClient = useQueryClient();
-  const { mutate, isLoading, isSuccess } = useMutation({
-    mutationFn: async (newTransaction: transactionType) => {
-      const res = await fetch("http://localhost:3005/transactions", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newTransaction),
-      });
-      return await res.json();
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["transactions"] });
-      navigate(`/`);
-    },
-  });
+  const { mutate, isLoading } = useCreatePost();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.id === "amount") {
@@ -117,7 +101,7 @@ export default function NewForm() {
             {!isLoading && (
               <input
                 type="submit"
-                className="sm:hover: mx-auto w-fit rounded-md border bg-sky-500 p-3 text-white transition-colors duration-200 sm:hover:border-sky-500 sm:hover:bg-gray-100 sm:hover:text-sky-500"
+                className=" mx-auto w-fit rounded-md border bg-sky-500 p-3 text-white transition-colors duration-200 sm:hover:cursor-pointer sm:hover:border-sky-500 sm:hover:bg-gray-100 sm:hover:text-sky-500"
               />
             )}
           </form>
