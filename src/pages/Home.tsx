@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-export type HomeProps = {
+export type dataAsProps = {
   data: dataItem[];
 };
 export type dataItem = {
-  id: string;
+  id: number;
   name: string;
   amout: number;
   date: string;
@@ -15,11 +15,11 @@ const getsAndFormatsTotal = (data: dataItem[]) => {
   return data.reduce((total, item) => total + item.amout, 0);
 };
 
-export default function Home({ data }: HomeProps) {
+export default function Home({ data }: dataAsProps) {
   const navigate = useNavigate();
   const currentBalance = getsAndFormatsTotal(data);
 
-  const handleClick = (id: string) => () => navigate(`/transactions/${id}`);
+  const handleClick = (id: number) => () => navigate(`/transactions/${id}`);
 
   return (
     <main className="flex min-h-screen flex-col items-center bg-gray-100 pt-28">

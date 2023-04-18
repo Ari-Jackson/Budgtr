@@ -18,15 +18,17 @@ export default function App() {
   if (error) {
     return <h1>Error! Something went wrong</h1>;
   }
-
   return (
     <Router>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home data={data} />} />
-        <Route path="transactions/:id" element={<Transaction />} />
-        <Route path="/new" element={<Form type={"new"} />} />
-        <Route path="transactions/:id/edit" element={<Form type={"edit"} />} />
+        <Route path="transactions/:id" element={<Transaction data={data} />} />
+        <Route path="/new" element={<Form type={"new"} data={data} />} />
+        <Route
+          path="transactions/:id/edit"
+          element={<Form type={"edit"} data={data} />}
+        />
       </Routes>
     </Router>
   );
