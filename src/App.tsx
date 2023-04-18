@@ -3,13 +3,13 @@ import Navbar from "./components/Navbar";
 import { useQuery } from "react-query";
 import Home from "./pages/Home";
 import Transaction from "./pages/Transaction";
-import Form from "./pages/Form";
+import EditForm from "./pages/Forms/EditForm";
+import NewForm from "./pages/Forms/NewForm";
 
 export default function App() {
-  const { isLoading, error, data } = useQuery("posts", () => {
-    return fetch("https://budget-app-o1zu.onrender.com/transactions")
-      .then((res) => res.json())
-      .catch((err) => console.log(err));
+  const { isLoading, error, data } = useQuery("transactions", async () => {
+    const res = await fetch("http://localhost:3005/transactions");
+    return await res.json();
   });
 
   if (isLoading) {
@@ -23,12 +23,9 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home data={data} />} />
-        <Route path="transactions/:id" element={<Transaction data={data} />} />
-        <Route path="/new" element={<Form type={"new"} data={data} />} />
-        <Route
-          path="transactions/:id/edit"
-          element={<Form type={"edit"} data={data} />}
-        />
+        <Route path="transactions/:id" element={<Transaction />} />
+        <Route path="/new" element={<NewForm />} />
+        <Route path="transactions/:id/edit" element={<EditForm />} />
       </Routes>
     </Router>
   );
