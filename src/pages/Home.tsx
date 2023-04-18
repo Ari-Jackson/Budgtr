@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 export type dataAsProps = {
   data: dataItem[];
@@ -6,13 +5,13 @@ export type dataAsProps = {
 export type dataItem = {
   id: number;
   name: string;
-  amout: number;
+  amount: number;
   date: string;
   from: string;
 };
 
 const getsAndFormatsTotal = (data: dataItem[]) => {
-  return data.reduce((total, item) => total + item.amout, 0);
+  return data.reduce((total, item) => total + item.amount, 0);
 };
 
 export default function Home({ data }: dataAsProps) {
@@ -46,7 +45,7 @@ export default function Home({ data }: dataAsProps) {
                 >
                   <td className="p-3">{item.date}</td>
                   <td className="p-3">{item.name}</td>
-                  <td className="p-3">{`$${item.amout.toFixed(2)}`}</td>
+                  <td className="p-3">{`$${item.amount.toFixed(2)}`}</td>
                 </tr>
               ))}
             </tbody>
