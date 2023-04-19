@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+import dayjs from "dayjs";
+import { useState } from "react";
+import { newTransactionType } from "../utils/types";
 const defaultFormValues = {
   name: "",
   amount: 0,
@@ -8,8 +10,8 @@ const defaultFormValues = {
 };
 export type transactionType = typeof defaultFormValues;
 type TransactionFormProps = {
-  onSubmit: (transaction: transactionType) => void;
-  initialValues?: transactionType;
+  onSubmit: (transaction: newTransactionType) => void;
+  initialValues?: newTransactionType;
 };
 
 export default function TransactionForm({
