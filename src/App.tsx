@@ -7,7 +7,7 @@ import NewForm from "./pages/Forms/NewForm";
 import useAllPosts from "./hooks/useAllPosts";
 
 export default function App() {
-  const [isLoading, error, data] = useAllPosts();
+  const [data, isLoading, error] = useAllPosts();
 
   if (isLoading) {
     return <h1>Loading...</h1>;

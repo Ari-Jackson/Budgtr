@@ -6,5 +6,5 @@ export default function useAllPosts() {
     return await res.json();
   });
 
-  return [isLoading, error, data];
+  return [data, isLoading, error];
 }
