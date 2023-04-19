@@ -17,9 +17,12 @@ For this project there were a few features, technologies or skills that were not
 
 2. **Tan Stack Query**. This project uses [Tan Stack Query](https://tanstack.com/query/latest) - formerly React Query - for fetching data. The other 50% of my stretching was here. I've never worked with Tan Stack Query before this project, though I'd heard about it and how powerful it is. I'm glad I pushed myself to use it becuase it is more powerful than what I've heard and I will definietly be using it in any frontend/fullstack app I build moving forward. Having auto caching and refetching after mutations helps to create a much nicer developer AND user experience. 
 
-3. **Vite**. This project uses [Vite](https://vitejs.dev/) instead of create-react-app. 
+3. **Vite**. This project uses [Vite](https://vitejs.dev/) instead of create-react-app.
+
+5. **Account Total In NavBar**. The account total can be seen in both the navbar and the home page.
+
+7. **Unix timestamps & Day.js**. The model was converted to use Unix timestamps instead of strings, and formatted using [Day.js](https://day.js.org/). The form uses native date handling and required a bit or work around to convert to Unix timestamps.
 
 ### Ways I would like to continue working on this app
-- Use the date object for the date, instead of just a string and make it human readable.
-- Use a checkbox/similar strategy to allow the user to select whether the transaction is a deposit or withdrawal. If it is a withdrawal, make sure the value subtracts and deposit values add. By default, your user would have be entering values that are positive or negative.
+- Use a checkbox/similar strategy to allow the user to select whether the transaction is a deposit or withdrawal. If it is a withdrawal, make sure the value subtracts and deposit values add.
 - Add a library like [chartjs](https://www.chartjs.org) or [D3](https://www.chartjs.org) to provide visualizations
