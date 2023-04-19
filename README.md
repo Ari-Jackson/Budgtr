@@ -27,4 +27,4 @@ For this project there were a few features, technologies or skills that were not
 
 ### Ways I would like to continue working into this app
 - Add a library like [chartjs](https://www.chartjs.org) or [D3](https://www.chartjs.org) to provide visualizations
-- Adding accessibility features into the app (i.e. keyboard navigation and aria-labels)
+- Add accessibility features (i.e. keyboard navigation and aria-labels)
