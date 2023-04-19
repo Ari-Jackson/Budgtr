@@ -27,7 +27,16 @@ export default function Home({ data }: dataAsProps) {
         <div className="flex flex-col items-center">
           <h1 className="text-3xl">Welcome to Budgtr</h1>
           <p>
-            Cuttent Balance: <span>{`$${currentBalance.toFixed(2)}`}</span>
+            Current Balance:{" "}
+            <span
+              className={
+                currentBalance < 0
+                  ? "text-red-400"
+                  : currentBalance < 100
+                  ? "text-yellow-400"
+                  : "text-green-400"
+              }
+            >{`$${currentBalance.toFixed(2)}`}</span>
           </p>
           <table className="w-full">
             <thead className=" text-left">
