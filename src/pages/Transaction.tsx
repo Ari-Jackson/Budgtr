@@ -38,6 +38,9 @@ export default function Transaction() {
             Name: {matchingTransaction.name}
           </p>
           <p className="text-md text-gray-500">
+            Category: {matchingTransaction.category}
+          </p>
+          <p className="text-md text-gray-500">
             Date: {matchingTransaction.date}
           </p>
         </div>

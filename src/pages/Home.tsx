@@ -8,6 +8,7 @@ export type dataItem = {
   amount: number;
   date: string;
   from: string;
+  category: string;
 };
 
 const getsAndFormatsTotal = (data: dataItem[]) => {

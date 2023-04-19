@@ -4,6 +4,7 @@ const defaultFormValues = {
   amount: 0,
   date: "",
   from: "",
+  category: "",
 };
 export type transactionType = typeof defaultFormValues;
 type TransactionFormProps = {
@@ -16,10 +17,6 @@ export default function TransactionForm({
   initialValues = defaultFormValues,
 }: TransactionFormProps) {
   const [transaction, setTransaction] = useState({ ...initialValues });
-
-  useEffect(() => {
-    setTransaction(initialValues);
-  }, [initialValues]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.id === "amount") {
@@ -78,11 +75,24 @@ export default function TransactionForm({
         Date
       </label>
       <input
-        type="string"
+        type="text"
         id="date"
         className=" px-4 py-2"
         onChange={handleChange}
         value={transaction.date}
+      />
+      <label
+        className="mb-2 block text-sm font-bold text-gray-700"
+        htmlFor="date"
+      >
+        Category
+      </label>
+      <input
+        type="text"
+        id="category"
+        className=" px-4 py-2"
+        onChange={handleChange}
+        value={transaction.category}
       />
       <label
         className="mb-2 block text-sm font-bold text-gray-700"
