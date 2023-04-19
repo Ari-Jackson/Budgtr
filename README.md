@@ -12,7 +12,7 @@ The assignment for this project was to build a full stack budgeting application 
 
 You can find a live demo of the site at [budgtr-finance.netlify.app](https://budgtr-finance.netlify.app/). 
 
-The code for the backend can be found [in this github repo](https://github.com/Ari-Jackson/budget-app-backend) and was deployed [here](https://budget-app-o1zu.onrender.com).
+The code for the backend can be found [in this github repo](https://github.com/Ari-Jackson/budget-app-backend) and is deployed [here](https://budget-app-o1zu.onrender.com).
 
 The trello board used for completing this project is linked [here](https://trello.com/b/ok91lltS/budgtr-app).
 
