@@ -17,7 +17,7 @@ export default function App() {
   }
   return (
     <Router>
-      <Navbar />
+      <Navbar data={data} />
       <Routes>
         <Route path="/" element={<Home data={data} />} />
         <Route path="transactions/:id" element={<Transaction />} />

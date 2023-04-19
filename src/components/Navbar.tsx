@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-export default function Navbar() {
+import { type dataAsProps } from "../pages/Home";
+export default function Navbar({ data }: dataAsProps) {
   return (
     <nav className=" fixed flex min-w-full justify-between bg-sky-600 p-4 text-white">
       {" "}
@@ -7,7 +8,7 @@ export default function Navbar() {
         <h1 className="text-3xl">Budgtr</h1>{" "}
       </Link>
       <Link to="/new">
-        <button className="duration-200sm:hover:bg-white rounded-md border p-2 transition-colors sm:hover:text-sky-600">
+        <button className="rounded-md border p-2 transition-colors duration-200 sm:hover:bg-white sm:hover:text-sky-600">
           New Transaction
         </button>
       </Link>
