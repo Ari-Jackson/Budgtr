@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 import { useState } from "react";
-import { newTransactionType } from "../utils/types";
+import { type newTransactionType } from "../utils/types";
 const defaultFormValues = {
   name: "",
   amount: 0,
@@ -64,7 +64,7 @@ export default function TransactionForm({
       <input
         type="text"
         id="name"
-        className=" px-4 py-2"
+        className="rounded-md px-4 py-2"
         onChange={handleChange}
         value={transaction.name}
       />
@@ -77,7 +77,7 @@ export default function TransactionForm({
       <input
         type="text"
         id="from"
-        className=" px-4 py-2"
+        className="rounded-md px-4 py-2"
         onChange={handleChange}
         value={transaction.from}
       />
@@ -90,7 +90,7 @@ export default function TransactionForm({
       <input
         type="date"
         id="date"
-        className=" px-4 py-2"
+        className="rounded-md px-4 py-2"
         onChange={handleChange}
         value={dayjs(transaction.date).format("YYYY-MM-DD")}
       />
@@ -103,39 +103,46 @@ export default function TransactionForm({
       <input
         type="text"
         id="category"
-        className=" px-4 py-2"
+        className="rounded-md px-4 py-2"
         onChange={handleChange}
         value={transaction.category}
       />
-      <div>
-        <label
-          className="mb-2 block text-sm font-bold text-gray-700"
-          htmlFor="amount"
-        >
-          Amount
-        </label>
-        <input
-          type="number"
-          id="amount"
-          className="px-4 py-2"
-          min={0.01}
-          step={0.01}
-          onChange={handleChange}
-          value={transaction.amount}
-        />
-        <label className="relative mb-4 inline-flex cursor-pointer items-center">
+      <div className="flex gap-36">
+        <div>
+          <label
+            className="mb-2 block text-sm font-bold text-gray-700"
+            htmlFor="amount"
+          >
+            Amount
+          </label>
           <input
-            type="checkbox"
-            checked={transaction.deposit}
-            id="deposit"
-            className="peer sr-only"
+            type="number"
+            id="amount"
+            className="rounded-md px-4 py-2"
+            min={0.01}
+            step={0.01}
             onChange={handleChange}
+            value={transaction.amount}
           />
-          <div className="after:border-gray-00 peer h-6 w-11 rounded-full bg-gray-300 after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-4 peer-focus:ring-blue-300 dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-blue-800"></div>
-          <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
-            Deposit
-          </span>
-        </label>
+        </div>
+        <div>
+          <label
+            htmlFor="deposit"
+            className="mb-2 block text-sm font-bold text-gray-700"
+          >
+            Depsoit
+          </label>
+          <label className="relative mb-4 ml-8 inline-flex cursor-pointer items-center">
+            <input
+              type="checkbox"
+              checked={transaction.deposit}
+              id="deposit"
+              className="peer sr-only"
+              onChange={handleChange}
+            />
+            <div className="after:border-gray-00 peer h-6 w-11 rounded-full bg-gray-300 after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:bg-white after:transition-all after:content-[''] peer-checked:bg-sky-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-4 peer-focus:ring-sky-300 dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-sky-800"></div>
+          </label>
+        </div>
       </div>
       <input
         type="submit"

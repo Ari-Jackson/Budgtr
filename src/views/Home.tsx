@@ -20,7 +20,7 @@ export default function Home({ data }: dataAsProps) {
                   ? "text-red-400"
                   : currentBalance < 100
                   ? "text-yellow-400"
-                  : "text-green-400"
+                  : "text-emerald-600"
               }
             >{`$${currentBalance.toFixed(2)}`}</span>
           </p>

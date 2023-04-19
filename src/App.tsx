@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
-import Transaction from "./pages/Transaction";
-import EditForm from "./pages/Forms/EditForm";
-import NewForm from "./pages/Forms/NewForm";
+import Home from "./views/Home";
+import Transaction from "./views/Transaction";
+import EditForm from "./views/Forms/EditForm";
+import NewForm from "./views/Forms/NewForm";
 import useAllPosts from "./hooks/useAllPosts";
 
 export default function App() {
