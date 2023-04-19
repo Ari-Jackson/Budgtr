@@ -13,13 +13,16 @@ export default function useCreatePost() {
   const queryClient = useQueryClient();
   const { mutate, isLoading } = useMutation({
     mutationFn: async (newTransaction: transactionType) => {
-      const res = await fetch("http://localhost:3005/transactions", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newTransaction),
-      });
+      const res = await fetch(
+        "https://budget-app-o1zu.onrender.com/transactions",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newTransaction),
+        }
+      );
       return await res.json();
     },
     onSuccess: () => {

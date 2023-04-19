@@ -15,7 +15,7 @@ export default function useUpdatePost() {
   const { mutate, isLoading } = useMutation({
     mutationFn: async (newTransaction: transactionType) => {
       const res = await fetch(
-        `http://localhost:3005/transactions/${newTransaction.id}`,
+        `https://budget-app-o1zu.onrender.com/transactions/${newTransaction.id}`,
         {
           method: "PUT",
           headers: {

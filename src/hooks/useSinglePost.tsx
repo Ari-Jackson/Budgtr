@@ -4,7 +4,9 @@ export default function useSinglePost(id: string | undefined) {
   const { isLoading, error, data } = useQuery(
     ["transactions", id],
     async () => {
-      const res = await fetch(`http://localhost:3005/transactions/${id}`);
+      const res = await fetch(
+        `https://budget-app-o1zu.onrender.com/transactions/${id}`
+      );
       return await res.json();
     }
   );

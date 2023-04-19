@@ -2,7 +2,9 @@ import { useQuery } from "react-query";
 
 export default function useAllPosts() {
   const { isLoading, error, data } = useQuery("transactions", async () => {
-    const res = await fetch("http://localhost:3005/transactions");
+    const res = await fetch(
+      "https://budget-app-o1zu.onrender.com/transactions"
+    );
     return await res.json();
   });
 
