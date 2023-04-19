@@ -1,19 +1,12 @@
 import { useMutation, useQueryClient } from "react-query";
 import { useNavigate } from "react-router-dom";
-
-type transactionType = {
-  id: number;
-  name: string;
-  amount: number;
-  date: string;
-  from: string;
-};
+import { dataItem } from "../utils/types";
 
 export default function useUpdatePost() {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const { mutate, isLoading } = useMutation({
-    mutationFn: async (newTransaction: transactionType) => {
+    mutationFn: async (newTransaction: dataItem) => {
       const res = await fetch(
         `https://budget-app-o1zu.onrender.com/transactions/${newTransaction.id}`,
         {
