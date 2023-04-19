@@ -9,6 +9,7 @@ export type dataItem = {
   date: number;
   from: string;
   category: string;
+  deposit: boolean;
 };
 
 export type newTransactionType = {
@@ -17,4 +18,5 @@ export type newTransactionType = {
   date: number;
   from: string;
   category: string;
+  deposit: boolean;
 };

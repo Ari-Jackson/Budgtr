@@ -22,8 +22,6 @@ export default function Transaction() {
     return <div>There was an error!</div>;
   }
 
-  console.log(matchingTransaction.date);
-
   return (
     <main className="flex min-h-screen flex-col items-center bg-gray-100 pt-28">
       <div className=" min-h-[18rem] w-4/5 max-w-7xl rounded-md bg-gray-200 p-5 shadow sm:w-3/5">
@@ -32,16 +30,19 @@ export default function Transaction() {
             ${matchingTransaction.amount.toFixed(2)}
           </h1>
           <p className="text-md text-gray-500">
-            From: {matchingTransaction.from}
+            {matchingTransaction.deposit ? "Deposit" : "Withdrawal"}
           </p>
           <p className="text-md text-gray-500">
             Name: {matchingTransaction.name}
           </p>
           <p className="text-md text-gray-500">
-            Category: {matchingTransaction.category}
+            From: {matchingTransaction.from}
           </p>
           <p className="text-md text-gray-500">
             Date: {formatsUnix(matchingTransaction.date)}
+          </p>
+          <p className="text-md text-gray-500">
+            Category: {matchingTransaction.category}
           </p>
         </div>
         <div className="flex justify-around">

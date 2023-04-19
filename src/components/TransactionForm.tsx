@@ -7,6 +7,7 @@ const defaultFormValues = {
   date: dayjs().valueOf(),
   from: "",
   category: "",
+  deposit: false,
 };
 type TransactionFormProps = {
   onSubmit: (transaction: newTransactionType) => void;
@@ -30,6 +31,11 @@ export default function TransactionForm({
         ...old,
         [e.target.id]: dayjs(e.target.value).valueOf(),
       }));
+    } else if (e.target.id === "deposit") {
+      setTransaction((old) => ({
+        ...old,
+        [e.target.id]: e.target.checked,
+      }));
     } else {
       setTransaction((old) => ({
         ...old,
@@ -42,6 +48,7 @@ export default function TransactionForm({
     e.preventDefault();
     onSubmit(transaction);
   };
+  console.log(transaction.deposit);
 
   return (
     <form
@@ -100,19 +107,36 @@ export default function TransactionForm({
         onChange={handleChange}
         value={transaction.category}
       />
-      <label
-        className="mb-2 block text-sm font-bold text-gray-700"
-        htmlFor="amount"
-      >
-        Amount
-      </label>
-      <input
-        type="number"
-        id="amount"
-        className="px-4 py-2"
-        onChange={handleChange}
-        value={transaction.amount}
-      />
+      <div>
+        <label
+          className="mb-2 block text-sm font-bold text-gray-700"
+          htmlFor="amount"
+        >
+          Amount
+        </label>
+        <input
+          type="number"
+          id="amount"
+          className="px-4 py-2"
+          min={0.01}
+          step={0.01}
+          onChange={handleChange}
+          value={transaction.amount}
+        />
+        <label className="relative mb-4 inline-flex cursor-pointer items-center">
+          <input
+            type="checkbox"
+            checked={transaction.deposit}
+            id="deposit"
+            className="peer sr-only"
+            onChange={handleChange}
+          />
+          <div className="after:border-gray-00 peer h-6 w-11 rounded-full bg-gray-300 after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-4 peer-focus:ring-blue-300 dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-blue-800"></div>
+          <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
+            Deposit
+          </span>
+        </label>
+      </div>
       <input
         type="submit"
         className="sm:hover: mx-auto w-fit rounded-md border bg-sky-500 p-3 text-white transition-colors duration-200 sm:hover:border-sky-500 sm:hover:bg-gray-100 sm:hover:text-sky-500"

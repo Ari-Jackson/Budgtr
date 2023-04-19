@@ -34,7 +34,6 @@ export default function Home({ data }: dataAsProps) {
             </thead>
             <tbody>
               {data.map((item) => {
-                console.log(item.date);
                 return (
                   <tr
                     className="cursor-pointer border-b hover:bg-gray-200"
@@ -42,8 +41,17 @@ export default function Home({ data }: dataAsProps) {
                     onClick={handleClick(item.id)}
                   >
                     <td className="p-3">{formatsUnix(item.date)}</td>
-                    <td className="p-3">{item.name}</td>
-                    <td className="p-3">{`$${item.amount.toFixed(2)}`}</td>
+                    <td className="p-3">
+                      {item.name}
+                      <span className=" text-xs text-gray-500">{` · ${
+                        item.deposit ? "Deposit" : "Withdrawl"
+                      }`}</span>
+                    </td>
+                    <td
+                      className={`p-3 ${
+                        !item.deposit ? "text-red-500" : "text-emerald-600"
+                      }`}
+                    >{`$${item.amount.toFixed(2)}`}</td>
                   </tr>
                 );
               })}
