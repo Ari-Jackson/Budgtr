@@ -4,11 +4,10 @@ import { newTransactionType } from "../utils/types";
 const defaultFormValues = {
   name: "",
   amount: 0,
-  date: "",
+  date: dayjs().valueOf(),
   from: "",
   category: "",
 };
-export type transactionType = typeof defaultFormValues;
 type TransactionFormProps = {
   onSubmit: (transaction: newTransactionType) => void;
   initialValues?: newTransactionType;
@@ -25,6 +24,11 @@ export default function TransactionForm({
       setTransaction((old) => ({
         ...old,
         [e.target.id]: Number(e.target.value),
+      }));
+    } else if (e.target.id === "date") {
+      setTransaction((old) => ({
+        ...old,
+        [e.target.id]: dayjs(e.target.value).valueOf(),
       }));
     } else {
       setTransaction((old) => ({
@@ -77,11 +81,11 @@ export default function TransactionForm({
         Date
       </label>
       <input
-        type="text"
+        type="date"
         id="date"
         className=" px-4 py-2"
         onChange={handleChange}
-        value={transaction.date}
+        value={dayjs(transaction.date).format("YYYY-MM-DD")}
       />
       <label
         className="mb-2 block text-sm font-bold text-gray-700"
