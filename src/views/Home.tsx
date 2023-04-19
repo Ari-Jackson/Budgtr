@@ -1,24 +1,10 @@
 import { useNavigate } from "react-router-dom";
-export type dataAsProps = {
-  data: dataItem[];
-};
-export type dataItem = {
-  id: number;
-  name: string;
-  amount: number;
-  date: string;
-  from: string;
-  category: string;
-};
-
-const getsAndFormatsTotal = (data: dataItem[]) => {
-  return data.reduce((total, item) => total + item.amount, 0);
-};
+import { getsAndFormatsTotal, formatsUnix } from "../utils/helpers";
+import { dataAsProps } from "../utils/types";
 
 export default function Home({ data }: dataAsProps) {
   const navigate = useNavigate();
   const currentBalance = getsAndFormatsTotal(data);
-
   const handleClick = (id: number) => () => navigate(`/transactions/${id}`);
 
   return (
@@ -47,17 +33,20 @@ export default function Home({ data }: dataAsProps) {
               </tr>
             </thead>
             <tbody>
-              {data.map((item) => (
-                <tr
-                  className="cursor-pointer border-b hover:bg-gray-200"
-                  key={item.id}
-                  onClick={handleClick(item.id)}
-                >
-                  <td className="p-3">{item.date}</td>
-                  <td className="p-3">{item.name}</td>
-                  <td className="p-3">{`$${item.amount.toFixed(2)}`}</td>
-                </tr>
-              ))}
+              {data.map((item) => {
+                console.log(item.date);
+                return (
+                  <tr
+                    className="cursor-pointer border-b hover:bg-gray-200"
+                    key={item.id}
+                    onClick={handleClick(item.id)}
+                  >
+                    <td className="p-3">{formatsUnix(item.date)}</td>
+                    <td className="p-3">{item.name}</td>
+                    <td className="p-3">{`$${item.amount.toFixed(2)}`}</td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>

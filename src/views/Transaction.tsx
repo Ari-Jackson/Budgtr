@@ -1,13 +1,7 @@
 import { Link, useParams } from "react-router-dom";
-import { type dataItem } from "./Home";
 import useDeletePost from "../hooks/useDeletePost";
 import useSinglePost from "../hooks/useSinglePost";
-
-const findMatchingTransaction = (id: string) => (transaction: dataItem) => {
-  return transaction.id === Number(id);
-};
-
-export { findMatchingTransaction };
+import { formatsUnix } from "../utils/helpers";
 
 export default function Transaction() {
   const { id } = useParams();
@@ -15,14 +9,20 @@ export default function Transaction() {
   const mutate = useDeletePost(id);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <main className="flex min-h-screen flex-col items-center bg-gray-100 pt-28">
+        <div className=" min-h-[18rem] w-4/5 max-w-7xl rounded-md bg-gray-200 p-5 shadow sm:w-3/5">
+          <div>Loading...</div>
+        </div>
+      </main>
+    );
   }
 
   if (error) {
     return <div>There was an error!</div>;
   }
 
-  const handleDelete = async () => mutate();
+  console.log(matchingTransaction.date);
 
   return (
     <main className="flex min-h-screen flex-col items-center bg-gray-100 pt-28">
@@ -41,7 +41,7 @@ export default function Transaction() {
             Category: {matchingTransaction.category}
           </p>
           <p className="text-md text-gray-500">
-            Date: {matchingTransaction.date}
+            Date: {formatsUnix(matchingTransaction.date)}
           </p>
         </div>
         <div className="flex justify-around">
@@ -56,7 +56,7 @@ export default function Transaction() {
             </button>
           </Link>
           <button
-            onClick={handleDelete}
+            onClick={() => mutate()}
             className="rounded-md border bg-red-500 p-2 px-4 text-white hover:border-red-500 hover:bg-white hover:text-red-500 sm:px-6"
           >
             Delete
