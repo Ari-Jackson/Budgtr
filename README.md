@@ -26,7 +26,7 @@ For this project there were a few features, technologies or skills that were not
 9. **Deposit / Withdrawl**. The model was updated to have a deposit "collumn" with a boolean value that's used to select whether the transaction is a deposit or withdrawal. Withdrawals and deposits are used to calculate the account total through subtraction and addition respectively.
 
 ### Ways I would like to continue working into this app
-- Make category a select that allows for selecting from previous categories and creating a new one
+- Make category a select that allows for selecting from previous categories or creating a new one
 - Add a Button to sort by date, name, deposit/withdrawl
 - Add a calandar view of when each purchase was made
     - Add the ability to add reoccuring withdrawls and deposits
