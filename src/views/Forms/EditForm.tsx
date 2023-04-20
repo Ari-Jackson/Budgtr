@@ -2,14 +2,14 @@ import { useParams } from "react-router-dom";
 import useSinglePost from "../../hooks/useSinglePost";
 import useUpdatePost from "../../hooks/useUpdatePost";
 import TransactionForm from "../../components/TransactionForm";
-import { type transactionType } from "../../components/TransactionForm";
+import { type newTransactionType } from "../../utils/types";
 
 export default function EditForm() {
   const { id } = useParams();
   const [data] = useSinglePost(id);
   const { mutate } = useUpdatePost();
 
-  const handleSubmit = (transaction: transactionType) => {
+  const handleSubmit = (transaction: newTransactionType) => {
     mutate({
       id: Number(id),
       ...transaction,
