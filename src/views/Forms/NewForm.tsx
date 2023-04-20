@@ -1,12 +1,12 @@
 import { useState } from "react";
 import useCreatePost from "../../hooks/useCreatePost";
 import TransactionForm from "../../components/TransactionForm";
-import { type transactionType } from "../../components/TransactionForm";
+import { type newTransactionType } from "../../utils/types";
 
 export default function NewForm() {
   const { mutate } = useCreatePost();
 
-  const handleSubmit = (transaction: transactionType) => mutate(transaction);
+  const handleSubmit = (transaction: newTransactionType) => mutate(transaction);
 
   return (
     <>
