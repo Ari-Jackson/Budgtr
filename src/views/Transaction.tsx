@@ -39,7 +39,7 @@ export default function Transaction() {
             From: {matchingTransaction.from}
           </p>
           <p className="text-md text-gray-500">
-            Date: {formatsUnix(matchingTransaction.date)}
+            Date: {formatsUnix(matchingTransaction.date, "long")}
           </p>
           <p className="text-md text-gray-500">
             Category: {matchingTransaction.category}

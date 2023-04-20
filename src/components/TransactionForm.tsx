@@ -146,7 +146,7 @@ export default function TransactionForm({
       </div>
       <input
         type="submit"
-        className="sm:hover: mx-auto w-fit rounded-md border bg-sky-500 p-3 text-white transition-colors duration-200 sm:hover:border-sky-500 sm:hover:bg-gray-100 sm:hover:text-sky-500"
+        className=" mx-auto w-fit rounded-md border bg-sky-500 p-3 text-white transition-colors duration-200 sm:hover:cursor-pointer sm:hover:border-sky-500 sm:hover:bg-gray-100 sm:hover:text-sky-500"
       />
     </form>
   );
