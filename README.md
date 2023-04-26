@@ -13,9 +13,9 @@ The trello board used for completing this project is linked [here](https://trell
 ## My Stretch goals
 
 For this project there were a few features, technologies or skills that were not required but were implemented. 
-1. **Typescript**. This project uses Typescript instead of Javascript. My experinece with Typescript is not very deep so this is where 50% of my "stretching" happened. Even though this isn't something that would be felt on the front end, the retstraints that came with working with types forced me to think more critically about the input and outputs of my functions and structure of the data. This pushed me to build more reusable componenets (to avoid writing unnecessary types) and I'm really proud of how much cleaner the logic ended up being.
+1. **Typescript**. This project uses Typescript instead of Javascript. My experinece with Typescript is shallow so this is where most of the "stretching" happened. Types forced me to think more critically about the input and outputs of functions, which led to more reusable componenets.
 
-2. **Tan Stack Query**. This project uses [Tan Stack Query](https://tanstack.com/query/latest) - formerly React Query - for fetching data. The other 50% of my stretching was here. I've never worked with Tan Stack Query before this project, though I'd heard about it and how powerful it is. I'm glad I pushed myself to use it becuase it is more powerful than what I've heard and I will definietly be using it in any frontend/fullstack app I build moving forward. Having auto caching and refetching after mutations helps to create a much nicer developer AND user experience. 
+2. **Tan Stack Query**. This project uses [Tan Stack Query](https://tanstack.com/query/latest) for fetching data. The rest of my stretching happened here since I've never worked with Tan Stack Query before. I'm glad I pushed myself to use it, and I will definietly be using it in frontend/fullstack apps moving forward. Having auto caching and refetching after mutations makes for a much better UX and DX.
 
 3. **Vite**. This project uses [Vite](https://vitejs.dev/) instead of create-react-app.
 
@@ -23,12 +23,9 @@ For this project there were a few features, technologies or skills that were not
 
 7. **Unix timestamps & Day.js**. The model was updated to use Unix timestamps instead of strings, and formatted using [Day.js](https://day.js.org/). The form uses native form date handling and required a bit or work around to convert to Unix timestamp.
 
-9. **Deposit / Withdrawl**. The model was updated to have a deposit "collumn" with a boolean value that's used to select whether the transaction is a deposit or withdrawal. Withdrawals and deposits are used to calculate the account total through subtraction and addition respectively.
+9. **Deposit / Withdrawl**. The model was updated to have a deposit "column" with a boolean value that's used to select whether the transaction is a deposit or withdrawal. Withdrawals and deposits are used to calculate the account total through subtraction and addition respectively.
 
 ### Ways I would like to continue working into this app
-- Make category a select that allows for selecting from previous categories or creating a new one
 - Add a Button to sort by date, name, deposit/withdrawl
-- Add a calandar view of when each purchase was made
-    - Add the ability to add reoccuring withdrawls and deposits
 - Add a library like [chartjs](https://www.chartjs.org) or [D3](https://www.chartjs.org) to provide visualizations
 - Add accessibility features (i.e. keyboard navigation and aria-labels)
