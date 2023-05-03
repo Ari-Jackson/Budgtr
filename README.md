@@ -1,6 +1,6 @@
 # Budgtr
 
-The assignment for this project was to build a full stack budgeting application called Budgtr, where people can log their financial transactions. There would be 2-4 days to build a backend with Express and Node, and frontend with React.
+The assignment for this project was to build a full stack budgeting application called Budgtr, where people can log their financial transactions. There would be 2 days to build a backend with Express and Node, and frontend with React.
 
 ## Live Demos
 
