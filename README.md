@@ -22,7 +22,3 @@ For this project there were a few features, technologies or skills that were not
 7. **Unix timestamps & Day.js**. The model was updated to use Unix timestamps instead of strings, and formatted using [Day.js](https://day.js.org/). The new and edit forms use native form date handling and required a bit or work around to convert to Unix timestamp.
 
 9. **Deposit / Withdrawl**. The model was updated to have a deposit "column" with a boolean value that's used to select whether the transaction is a deposit or withdrawal. Withdrawals and deposits are used to calculate the account total through subtraction and addition respectively.
-
-### Ways I would like to continue working into this app
-- Add a Button to sort by date, name, deposit/withdrawl
-- Add a library like [chartjs](https://www.chartjs.org) or [D3](https://www.chartjs.org) to provide visualizations
